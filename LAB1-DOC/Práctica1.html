@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Practica 1 Laboratorio</title>
+	</head>
+	<body>
+		<h1>Practica 1</h1>
+		<label>Nombre:</label>
+		<input id="name" type="text"><br><br>
+		<label>Apellidos:</label>
+		<input id="last1" type="text"><br><br>
+		<input id="last2" type="text"><br><br>
+		<label>Fecha de nacimiento:</label>
+		<input id="fecha" type="text"><br><br>
+		<label>Edad:</label>
+		<input id="edad" type="text"><br><br>
+		<label>Genero:</label>
+			<select id="option">
+				<option value="Genero">Genero</option>
+				<option value="Hombre">Hombre</option>
+				<option value="Mujer">Mujer</option>
+			</select>
+			<br><br>
+		<input type="button" value="Imprimir" onclick="prnt()">
+		<label id="text"></label>
+	</body>
+	<script>
+		function CrearRfc(){
+			var nombre = document.getElementById("name").value;
+			nombre = nombre.toUpperCase();
+			var ap1 = document.getElementById("last1").value;
+			ap1 = ap1.toUpperCase();
+			var ap2 = document.getElementById("last2").value;
+			ap2 = ap2.toUpperCase();
+			var fecha = document.getElementById("fecha").value;
+			var Genero = document.getElementById("option").value;
+			var rfc = ap1.substring(0,2) + ap2.substring(0,1) + nombre.substring(0,1) + fecha.substring(6,8) + fecha.substring(3,5) + fecha.substring(0,2) + Genero.substring(0,1);
+			return rfc;
+		}
+		function prnt(){
+		var rfc = CrearRfc();
+			var label = document.getElementById("text");
+			label.innerHTML=rfc;
+		}
+	</script>
+</html>
